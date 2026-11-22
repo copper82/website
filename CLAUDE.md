@@ -4,11 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project state
 
-This folder holds a personal professional website for a consultant radiologist. It is a plain static site in `site/`: `site/index.html` (one page, all sections) and `site/styles.css` (light and dark mode via `prefers-color-scheme`, phone layout under 760px). There is no framework, build, lint or test setup, and the folder is not a git repository.
+This folder holds a personal professional website for a consultant radiologist. It is a plain static site in the root folder: `index.html` (one page, all sections) and `styles.css` (light and dark mode via `prefers-color-scheme`, phone layout under 760px). There is no framework, build, lint or test setup, and the folder is not a git repository.
 
-- Preview locally: `py -m http.server 8000 --bind 127.0.0.1 --directory site`, then open http://localhost:8000 (also configured as `website` in `.claude/launch.json`). Opening `index.html` as a file in the preview pane loses the stylesheet.
-- When `profile.md` changes, copy the change into `site/index.html` by hand; the page text is not generated from it.
-- Hosting: Netlify, deployed by dragging the `site/` folder onto Netlify (manual deploy). Only `site/` is ever uploaded. Never put `CV/`, `profile.md` or other private files inside `site/`.
+- Preview locally: `py -m http.server 8000 --bind 127.0.0.1`, then open http://localhost:8000 (also configured as `website` in `.claude/launch.json`). Opening `index.html` as a file in the preview pane loses the stylesheet.
+- When `profile.md` changes, copy the change into `index.html` by hand; the page text is not generated from it.
+- `index.html` links `styles.css?v=N`; bump N after changing the CSS so browsers don't show a cached copy.
+- Publishing: upload only `index.html` and `styles.css`. Never upload the whole folder: it also holds `CV/` (phone number, citizenships), `profile.md` and `CLAUDE.md`, which must stay private.
 
 ## Files
 
